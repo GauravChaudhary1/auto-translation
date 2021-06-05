@@ -1,0 +1,22 @@
+{
+    "generator-template-ui5-project": {
+      "projectname": "rfid",
+      "namespaceUI5": "com.gaurav.ui5",
+      "platform": "SAP NetWeaver",
+      "viewtype": "XML",
+      "ui5libs": "Content delivery network (SAPUI5)",
+      "newdir": true,
+      "namespaceURI": "com/gaurav/ui5",
+      "opa5pos": [
+        "Main"
+      ],
+      "opa5Journeys": [
+        "Main"
+      ],
+      "uimodules": [
+        "webapp"
+      ],
+      "setupCompleted": true
+    }
+  }
+  

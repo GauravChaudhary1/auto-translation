@@ -1,0 +1,53 @@
+<mvc:View controllerName="com.gaurav.ui5.rfid.controller.Main" 
+	  xmlns:mvc="sap.ui.core.mvc" 
+	  displayBlock="true" 
+	  xmlns:tnt="sap.tnt"
+	  xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	  xmlns:smartTable="sap.ui.comp.smarttable"
+	  xmlns="sap.m">
+	<VBox> 
+	<App id="app">
+		<pages>
+			<tnt:ToolPage >
+				<tnt:header>
+					<tnt:ToolHeader>						
+						<Image src="test-resources/sap/tnt/images/SAP_Logo.png" />
+						<Text text="{i18n>appTitle}" wrapping="false" />
+						<ToolbarSpacer />
+						<Button icon="sap-icon://search" type="Transparent" />
+						<Button icon="sap-icon://task" type="Transparent" />
+						<Button icon="sap-icon://bell" type="Transparent" />						
+						<Button icon="sap-icon://grid" type="Transparent" />
+					</tnt:ToolHeader>
+				</tnt:header>
+				<tnt:mainContents>
+					<smartFilterBar:SmartFilterBar id="smartFilterBar" persistencyKey="UniqueAndStablePersistencyKey"
+						considerSelectionVariants="true" entitySet="Problem" basicSearchFieldName="MaterialNo" showClearButton="true">					
+						<smartFilterBar:layoutData>
+							<FlexItemData shrinkFactor="0"/>
+						</smartFilterBar:layoutData>
+					</smartFilterBar:SmartFilterBar>
+
+					<smartTable:SmartTable id="idSmartTable" entitySet="Problem" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
+						useVariantManagement="false"  header="Problems">
+						<smartTable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smartTable:layoutData>
+						<smartTable:customToolbar>
+						<Toolbar>
+							<content>
+								<ToolbarSpacer/>
+								<Button text="Create" press="handleCreate" type="Transparent"/>
+
+							</content>
+						</Toolbar>
+						</smartTable:customToolbar>
+
+					</smartTable:SmartTable>
+				</tnt:mainContents>
+			</tnt:ToolPage>
+		</pages>
+	</App>
+	</VBox>  
+	
+</mvc:View>

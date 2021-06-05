@@ -1,0 +1,136 @@
+<View controllerName="com.gaurav.ui5.rfid.controller.Detail" 
+      xmlns="sap.m"
+		xmlns:core="sap.ui.core"
+		xmlns:f="sap.f"
+		xmlns:tnt="sap.tnt"
+		xmlns:form="sap.ui.comp.smartform"
+		xmlns:smartField="sap.ui.comp.smartfield"
+		xmlns:u="sap.ui.unified"
+		xmlns:layout="sap.ui.layout"
+		height="100%">
+		
+			<App id="app">
+			<pages>
+				<f:DynamicPage
+					stickySubheaderProvider="idProblem"
+					toggleHeaderOnTitleClick="false"
+					class="sapUiNoContentPadding"					
+					showFooter="true">
+					
+					<f:content>
+						<Wizard id="idProblem"
+								class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+								showNextButton="false">
+							<WizardStep id="Step1"
+										title="{i18n>step1}"
+										validated="true"
+										activate="productTypeActivate">
+								<MessageStrip class="sapUiSmallMarginBottom"
+										text="Provide either Serial Number or Order Number "
+										showIcon="true"/>
+								<HBox width="100%">
+									
+									<form:SmartForm id="SF1" editable="true">
+										<form:Group id="G1">
+											<form:GroupElement id="GE-Serial">
+												<smartField:SmartField id="idSerial" value="{Serialno}" change="handleDraft" valueListChanged="handleDraft"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-Order">
+												<smartField:SmartField id="idOrder" value="{Orderno}"/>
+											</form:GroupElement>
+										</form:Group>
+									</form:SmartForm>
+								</HBox>
+							</WizardStep>
+							<WizardStep id="Step2"
+										validated="false"
+										title="Select Component"
+										activate="additionalInfoValidation">
+								<HBox width="100%">														
+								<form:SmartForm id="SF2" editable="false">
+										<form:Group id="G2">
+											<form:GroupElement id="GE-Serial-r">
+												<smartField:SmartField id="idSerial-r" value="{Serialno}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-Order-r">
+												<smartField:SmartField id="idOrder-r" value="{Orderno}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-Material-r">
+												<smartField:SmartField id="idMatnr-r" value="{Material}"/>
+											</form:GroupElement>
+										</form:Group>
+								</form:SmartForm>
+								<form:SmartForm id="SF3" editable="true">
+										<form:Group id="G3">
+											<form:GroupElement id="GE-Component">
+												<smartField:SmartField id="idComponent" value="{Component}"/>
+											</form:GroupElement>
+
+										</form:Group>
+								</form:SmartForm>
+
+								</HBox>
+							</WizardStep>
+							<WizardStep id="Step3"
+										validated="true"
+										activate="optionalStepActivation"
+										title="Problem Description">
+								<HBox width="100%">														
+								<form:SmartForm id="SF4" editable="true">
+										<form:Group id="G4">
+											<form:GroupElement id="GE-record_loc">
+												<smartField:SmartField id="idrecord_loc" value="{record_loc}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-defectCount">
+												<smartField:SmartField id="iddefectCount" value="{defectCount}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-defectCode">
+												<smartField:SmartField id="iddefectCode" value="{defectCode}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-causer">
+												<smartField:SmartField id="idcauser" value="{causer}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-descr">
+												<smartField:SmartField id="iddescr" value="{descr}"/>
+											</form:GroupElement>
+										</form:Group>
+								</form:SmartForm>
+								<form:SmartForm id="SF5" editable="true">
+										<form:Group id="G5">
+											<form:GroupElement id="GE-supplier">
+												<smartField:SmartField id="idsupplier" value="{supplier}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-addnInfo">
+												<smartField:SmartField id="idaddnInfo" value="{addnInfo}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-labelsCount">
+												<smartField:SmartField id="idlabelsCount" value="{labelsCount}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-detaildescr">
+												<smartField:SmartField id="iddetaildescr" value="{detaildescr}"/>
+											</form:GroupElement>
+											<form:GroupElement id="GE-execposting">
+												<smartField:SmartField id="idexecposting" value="{execposting}"/>
+											</form:GroupElement>
+
+										</form:Group>
+								</form:SmartForm>
+								</HBox>
+							</WizardStep>
+						</Wizard>
+					</f:content>
+
+					<f:footer>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<DraftIndicator id="draftIndi"></DraftIndicator>
+							<Button text="Previous" visible="{/backButtonVisible}" press="onPrevStep" />
+							<Button text="Next Step" type="Emphasized" enabled="{/nextButtonEnabled}" visible="{/nextButtonVisible}" press="onNextStep" />					
+							<Button text="Finish" type="Emphasized" visible="{/finishButtonVisible}" press="handleWizardSubmit" />
+							<Button	text="Cancel" type="Transparent" press="handleWizardCancel"/>
+						</OverflowToolbar>
+					</f:footer>
+				</f:DynamicPage>
+			</pages>
+		</App>
+</View>
