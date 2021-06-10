@@ -5,8 +5,8 @@ sap.ui.getCore().attachInit(function () {
 	"use strict";
 
 	sap.ui.require([
-		"comgaurav.ui5./rfid/test/unit/AllTests"
-	], function () {
+		"com/gaurav/ui5/rfid/test/unit/AllTests"
+	], function () {		
 		QUnit.start();
 	});
 });

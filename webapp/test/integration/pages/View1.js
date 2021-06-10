@@ -3,6 +3,7 @@ sap.ui.define([
 ], function (Opa5) {
 	"use strict";
 	var sViewName = "Main";
+		
 	Opa5.createPageObjects({
 		onTheAppPage: {
 
@@ -14,6 +15,7 @@ sap.ui.define([
 					return this.waitFor({
 						id: "app",
 						viewName: sViewName,
+						
 						success: function () {
 							Opa5.assert.ok(true, "The " + sViewName + " view is displayed");
 						},

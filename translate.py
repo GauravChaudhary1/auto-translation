@@ -46,8 +46,6 @@ def translate(content, lang):
 
     return convtContent
   
-# Using the special variable 
-# __name__
 if __name__=="__main__":
     contents, targetLang = read_file()
     write_file(contents, targetLang)

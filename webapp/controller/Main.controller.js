@@ -1,18 +1,18 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History",
-	"sap/m/Button",
-	"com/seagate/utility/xlsx/library"
+	"sap/m/Button"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller, History, Button, Lib) {
+	function (Controller, History, Button) {
 		"use strict";
 
 		return Controller.extend("com.gaurav.ui5.rfid.controller.Main", {
 			onInit : function () {		
-				this.byId("idSmartTable").getTable().attachUpdateFinished(this._afterUpdateFinished.bind(this));
+				this.byId("idSmartTable") && 
+					this.byId("idSmartTable").getTable().attachUpdateFinished(this._afterUpdateFinished.bind(this));
 				// let oToolbar = this.byId("idSmartTable").getToolbar();
 				// oToolbar.insertContent( new Button({text:"Create", type:"Transparent", press: this.handleCreate}),2)		
 			},

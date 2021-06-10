@@ -1,4 +1,5 @@
-<mvc:View controllerName="com.gaurav.ui5.rfid.controller.Main" 
+<mvc:View id="Main"  
+	  controllerName="com.gaurav.ui5.rfid.controller.Main" 
 	  xmlns:mvc="sap.ui.core.mvc" 
 	  displayBlock="true" 
 	  xmlns:tnt="sap.tnt"
@@ -8,7 +9,7 @@
 	<VBox> 
 	<App id="app">
 		<pages>
-			<tnt:ToolPage >
+			<tnt:ToolPage>
 				<tnt:header>
 					<tnt:ToolHeader>						
 						<Image src="test-resources/sap/tnt/images/SAP_Logo.png" />
@@ -30,6 +31,8 @@
 
 					<smartTable:SmartTable id="idSmartTable" entitySet="Problem" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
 						useVariantManagement="false"  header="Problems">
+						<Table mode="SingleSelectLeft">							
+						</Table>
 						<smartTable:layoutData>
 							<FlexItemData growFactor="1" baseSize="0%"/>
 						</smartTable:layoutData>

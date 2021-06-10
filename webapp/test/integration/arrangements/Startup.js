@@ -4,13 +4,11 @@ sap.ui.define([
 	"use strict";
 
 	return Opa5.extend("com.gaurav.ui5.rfid.test.integration.arrangements.Startup", {
-
+		
 		iStartMyApp: function (oOptionsParameter) {
 			var oOptions = oOptionsParameter || {};
-
 			// start the app with a minimal delay to make tests fast but still async to discover basic timing issues
-			oOptions.delay = oOptions.delay || 50;
-
+			oOptions.delay = oOptions.delay || 10;			
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {

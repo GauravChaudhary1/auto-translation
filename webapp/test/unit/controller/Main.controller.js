@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"comgaurav.ui5./rfid/controller/Main.controller"
+	"com/gaurav/ui5/rfid/controller/Main.controller"
 ], function (Controller) {
 	"use strict";
 
